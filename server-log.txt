@@ -1,0 +1,9 @@
+2026-10-21 08:44:01 INFO  worker starting (pid=412)
+2026-10-21 08:44:02 INFO  connected to queue in 812ms
+2026-10-21 08:44:09 WARN  retry 1/3 for job 9917: timeout after 5000ms
+2026-10-21 08:44:11 INFO  job 9917 picked up by worker-3
+2026-10-21 08:44:12 INFO  job 9917 completed in 1042ms
+2026-10-21 08:44:15 INFO  heartbeat ok (lag 12ms)
+2026-10-21 08:44:19 ERROR job 9918 failed permanently: timeout after 5000ms
+2026-10-21 08:44:20 INFO  worker shutting down cleanly
+2026-10-21 08:44:20 INFO  flushed 3 metrics, exiting

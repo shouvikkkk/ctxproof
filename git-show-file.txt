@@ -1,0 +1,29 @@
+commit 7b2e4d1a9c3f8e2d1b4a6c5d9e0f1a2b3c4d5e6
+Author: Shouvik Maji <dev@example.com>
+Date:   Tue Oct 20 14:22:10 2026 +0530
+
+    switch store hash to blake2b-256
+
+diff --git a/store.py b/store.py
+--- /dev/null
++++ b/store.py
+@@ -0,0 +1,40 @@
++import hashlib
++import os
++
++
++def content_hash(data: bytes) -> str:
++    return hashlib.blake2b(data, digest_size=32).hexdigest()
++
++
++class BlobStore:
++    def __init__(self, root):
++        self.root = root
++
++    def put(self, data):
++        digest = content_hash(data)
++        path = self.root / digest[:2] / digest[2:]
++        if not path.exists():
++            path.parent.mkdir(parents=True, exist_ok=True)
++            path.write_bytes(data)
++        return digest

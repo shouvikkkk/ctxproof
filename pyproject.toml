@@ -1,0 +1,19 @@
+[project]
+name = "ctxproof"
+version = "0.1.0"
+description = "Content-addressed integrity layer for tool output: wrap any lossy context compressor with a verifiable byte-exact restoration guarantee"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "Shouvik Maji" }]
+keywords = ["ai-agents", "context-compression", "integrity", "blake2", "coding-agents", "mcp"]
+
+[project.scripts]
+ctxproof = "ctxproof.cli:main"
+
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+include = ["ctxproof*"]

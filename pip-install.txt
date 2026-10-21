@@ -1,0 +1,8 @@
+Collecting ctxproof
+  Downloading ctxproof-0.1.0-py3-none-any.whl (42 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 42.0/42.0 kB 1.2 MB/s eta 0:00:00
+Collecting requests>=2.28
+  Downloading requests-2.32.3-py3-none-any.whl (64 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 64.0/64.0 kB 2.1 MB/s eta 0:00:00
+Installing collected packages: requests, ctxproof
+Successfully installed ctxproof-0.1.0 requests-2.32.3

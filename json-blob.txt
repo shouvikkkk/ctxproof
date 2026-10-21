@@ -1,0 +1,18 @@
+{
+  "run_id": "a3f9c1e2",
+  "matrix": [[1, 2, 3], [4, 5, 6], [7, 8, 9]],
+  "config": {
+    "retries": 3,
+    "timeout_ms": 1500,
+    "features": ["dedup", "verify", "ttl"],
+    "nested": {"deep": {"deeper": [true, false, null, "x"]}}
+  },
+  "thresholds": {"p95_ms": 210.5, "error_rate": 0.001},
+  "provenance": {"source": "scheduler", "region": "ap-south-1", "shard": 7},
+  "jobs": [
+    {"id": 9917, "state": "failed", "attempts": 3, "last_error": "timeout after 5000ms"},
+    {"id": 9918, "state": "failed", "attempts": 3, "last_error": "timeout after 5000ms"},
+    {"id": 9919, "state": "ok", "attempts": 1, "duration_ms": 1042}
+  ],
+  "signature": "blake2b:9f2ac41d07e3b8f1c6d4a5e2b809173645f0acb1d3e5f60718293a4b5c6d7e8f9"
+}

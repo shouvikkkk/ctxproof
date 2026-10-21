@@ -1,0 +1,25 @@
+============================= test session starts ==============================
+platform linux -- Python 3.12.3, pytest-8.3.4, pluggy-1.5.0
+collected 24 items
+
+tests/test_ledger.py::test_double_entry_balances FAILED                   [  4%]
+tests/test_ledger.py::test_currency_rounding PASSED                       [  8%]
+
+=================================== FAILURES ===================================
+______________________ test_double_entry_balances ______________________
+
+    def test_double_entry_balances():
+        entries = [Entry("cash", "debit", 100.0), Entry("rev", "credit", 100.0)]
+>       assert reconcile_ledger(entries) == {"cash": -100.0, "rev": 100.0}
+E       AssertionError: assert {'cash': -90.0, 'rev': 100.0} == {'cash': -100.0, 'rev': 100.0}
+E         Differing items:
+E         {'cash': -90.0} != {'cash': -100.0}
+E
+E        Full diff:
+E        - {'cash': -100.0, 'rev': 100.0}
+E        + {'cash': -90.0, 'rev': 100.0}
+
+tests/test_ledger.py:42: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_ledger.py::test_double_entry_balances - AssertionError: assert {'cash': -90.0} != {'cash': -100.0}
+1 failed, 23 passed in 0.42s

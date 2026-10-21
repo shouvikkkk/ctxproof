@@ -1,0 +1,25 @@
+diff --git a/ctxproof/store.py b/ctxproof/store.py
+index 3a1f9c2..7b2e4d1 100644
+--- a/ctxproof/store.py
++++ b/ctxproof/store.py
+@@ -41,7 +41,7 @@ class Store:
+     def put(self, data: bytes, meta: dict):
+-        digest = hashlib.sha256(data).hexdigest()
++        digest = hashlib.blake2b(data, digest_size=32).hexdigest()
+         path = self._blob_path(digest)
+         if not path.exists():
+             path.parent.mkdir(parents=True, exist_ok=True)
+@@ -55,6 +55,9 @@ class Store:
+         return digest, deduped
++
++    def verify(self, digest: str) -> bool:
++        blob = self.get(digest)
++        return blob is not None and content_hash(blob) == digest
+diff --git a/ctxproof/cli.py b/ctxproof/cli.py
+index 9aa12bb..c3d4e55 100644
+--- a/ctxproof/cli.py
++++ b/ctxproof/cli.py
+@@ -10,6 +10,7 @@ import sys
+ import sys
++import json
+ from pathlib import Path

@@ -1,0 +1,31 @@
+     1	import os
+     2	import sys
+     3	
+     4	def reconcile(entries):
+     5	    balances = {}
+     6	    for e in entries:
+     7	        if e.kind == "debit":
+     8	            balances[e.account] = balances.get(e.account, 0) - e.amount
+     9	        elif e.kind == "credit":
+    10	            balances[e.account] = balances.get(e.account, 0) + e.amount
+    11	    return balances
+    12	
+    13	
+    14	if __name__ == "__main__":
+    15	    sys.exit(reconcile(sys.argv[1:]))
+    16	
+    17	def load_config(path):
+    18	    with open(path) as fh:
+    19	        cfg = json.load(fh)
+    20	    if "server" not in cfg:
+    21	        raise KeyError("config missing [server] section")
+    22	    return cfg
+    23	
+    24	
+    25	class Server:
+    26	    def __init__(self, cfg):
+    27	        self.host = cfg["server"]["host"]
+    28	        self.port = int(cfg["server"]["port"])
+    29	
+    30	    def address(self):
+    31	        return f"{self.host}:{self.port}"

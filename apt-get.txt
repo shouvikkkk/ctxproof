@@ -1,0 +1,15 @@
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+The following NEW packages will be installed:
+  gcc libffi-dev python3-dev
+0 upgraded, 3 newly installed, 0 to remove and 12 not upgraded.
+Need to get 18.4 MB of archives.
+After this operation, 62.1 MB of additional disk space will be used.
+Get:1 http://archive.ubuntu.com/ubuntu noble/main amd64 gcc 4:13.2.0-7ubuntu3 [5.2 kB]
+Get:2 http://archive.ubuntu.com/ubuntu noble/main amd64 libffi-dev 3.4.6-1 [58.1 kB]
+Fetched 18.4 MB in 2s (9,214 kB/s)
+Selecting previously unselected package gcc.
+Preparing to unpack .../gcc_4%3a13.2.0-7ubuntu3_amd64.deb ...
+Unpacking gcc (4:13.2.0-7ubuntu3) ...
+Setting up gcc (4:13.2.0-7ubuntu3) ...

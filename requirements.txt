@@ -1,0 +1,2 @@
+# Runtime: Python 3.10+ standard library only (no runtime dependencies).
+# blake2b via hashlib, argparse, sqlite3, json, re — all stdlib.

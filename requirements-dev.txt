@@ -1,0 +1,4 @@
+# Dev/test dependencies. The test suite itself is unittest-based and runs
+# with zero dependencies:  python3 -m unittest discover -s tests
+# pytest is optional, for nicer output only.
+pytest>=7

@@ -1,0 +1,12 @@
+[+] Building 12.4s (14/14) FINISHED
+ => [internal] load build definition from Dockerfile                       0.1s
+ => => transferring dockerfile: 1.2kB                                     0.0s
+ => [internal] load .dockerignore                                          0.1s
+ => [builder 1/6] FROM python:3.12-slim                                   2.1s
+ => [builder 2/6] RUN apt-get update && apt-get install -y gcc            8.4s
+ => [builder 3/6] COPY requirements.txt ./                                0.1s
+ => [builder 4/6] RUN pip install --no-cache-dir -r requirements.txt      1.2s
+ => [builder 5/6] COPY . /app                                             0.2s
+ => [builder 6/6] WORKDIR /app                                            0.0s
+ => exporting to image                                                     0.2s
+ => => naming to registry.local/ctxproof:0.1.0                            0.0s

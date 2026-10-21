@@ -1,0 +1,19 @@
+Traceback (most recent call last):
+  File "/app/worker.py", line 212, in run
+    result = handler(payload)
+  File "/app/handlers.py", line 88, in handler
+    return json.loads(body)["items"][0]
+  File "/usr/lib/python3.12/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+  File "/usr/lib/python3.12/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w_decode(s, 0).end)
+KeyError: 'items'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/app/worker.py", line 220, in run
+    metrics.emit("handler.error", 1)
+  File "/app/metrics.py", line 31, in emit
+    sock.sendall(pack(name, value))
+ConnectionError: [Errno 111] Connection refused

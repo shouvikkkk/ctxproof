@@ -1,0 +1,26 @@
+# --- production config, do not edit by hand ---
+[server]
+host = 10.0.4.21
+port = 8443
+tls_cert = /etc/svc/tls/fullchain.pem
+tls_key  = /etc/svc/tls/privkey.pem
+
+[limits]
+max_connections = 4096
+request_timeout_ms = 1500
+# raised from 500 on 2026-09-30 after the incident
+rate_limit_per_min = 1200
+
+[features]
+enable_tracing = true
+sample_rate = 0.05
+
+[retention]
+raw_days = 30
+envelope_days = 90
+audit_log_days = 365
+
+[alerts]
+webhook = https://hooks.internal.example.com/alerts/svc
+on_tamper = page
+on_expiry = warn
